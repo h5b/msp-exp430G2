@@ -9,7 +9,7 @@ to be used with the MSP-GCC toolchain.
 * __blink_led_sw__ implements an example to let the Green LED (PIN 1.6)
   of the MSP430 LaunchPad blink once per second.  
   The delay is accomplished via a software delay provided by  
-  __delay_cycles()__ function.  
+  __\_\_delay_cycles()__ function.  
 
 ## Schematics
 
