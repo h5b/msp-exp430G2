@@ -1,6 +1,7 @@
 include Makefile.inc
 
-SUBDIRS = blink_led_sw
+SUBDIRS = blink_led_wdt \
+	  blink_led_sw
 
 all:
 	for d in $(SUBDIRS); do $(MAKE) -C $$d; done
