@@ -1,6 +1,7 @@
 include Makefile.inc
 
 SUBDIRS = blink_led_wdt \
+	  blink_led_timerA \
 	  blink_led_sw
 
 all:
