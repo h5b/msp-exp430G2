@@ -6,10 +6,10 @@ to be used with the MSP-GCC toolchain.
 
 ## Sources
 
-* __blink_led_wdt__ is an example in the veins of __blink_led_sw__  to let the  
-  Green LED (PIN 1.6) of the MSP430 LaunchPad blink once per second. Although  
-  using a timer-based delay which is accomplished via the builtin Watchdog  
-  functionality.
+* __blink_led_pwm__ implements an PWM example to flash the Green LED (PIN 1.6)  
+  of the MSP430 LaunchPad. Flashing the LED is accomplished by making use of  
+  Timer_A's ability two keep track of two Compare Match Values. With one being  
+  used as PWM Duty Cycle and the other one to control the PWM Period.
 
 * __blink_led_sw__ implements an example to let the Green LED (PIN 1.6) of the  
   MSP430 LaunchPad blink once per second. The delay is accomplished via  
@@ -18,11 +18,12 @@ to be used with the MSP-GCC toolchain.
 * __blink_led_timerA__ implements an example in the veins of __blink_led_wdt__  
   to let the Green LED (PIN 1.6) of the MSP430 LaunchPad blink  
   once per second. Instead of utilizing the Watchdog functionality the System  
-  Timer_A is used. The Timer_A is configured to run in Compare Match Mode  
-  resulting in an interrupt every 8ms. The smallest Clock Speed to be  
-  accomplished with System Clock, Clock Divider and Maximum Compare Match  
-  Value is about two seconds (1^10Hz / 8 / 65535). Therefore we also make use  
-  of an internal counter to meet the one second blink delay.
+  Timer_A is configured to run in Compare Match Mode.
+
+* __blink_led_wdt__ is an example in the veins of __blink_led_sw__  to let the  
+  Green LED (PIN 1.6) of the MSP430 LaunchPad blink once per second.  
+  Although using a timer-based delay which is accomplished via the builtin  
+  Watchdog functionality.
 
 
 ## Schematics
