@@ -13,7 +13,7 @@ $(PROG).elf: $(OBJS)
 	@echo "___ [SIZE] ______________________________________________"
 
 $(OBJS): $(SRCS) ../Makefile.inc
-	$(CC) $(CFLAGS) -c $(SRCS)
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c $(SRCS)
 
 prog: $(PROG).elf
 	$(MSPPROG) 'prog $(PROG).elf'

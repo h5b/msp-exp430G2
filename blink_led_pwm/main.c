@@ -16,7 +16,7 @@
  */
 
 #include <msp430g2452.h>
-#include "../board.h"
+#include "board.h"
 
 void ISR_Timer0_A0(void) __attribute__((interrupt(TIMER0_A0_VECTOR)));
 void ISR_Timer0_A1(void) __attribute__((interrupt(TIMER0_A1_VECTOR)));

@@ -16,7 +16,7 @@
  */
 
 #include <msp430g2452.h>
-#include "../board.h"
+#include "board.h"
 
 #define ONE_SECOND	125 /* 1000ms/8ms = 125 */
 

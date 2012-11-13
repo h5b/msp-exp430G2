@@ -17,7 +17,7 @@
 
 #include <msp430g2452.h>
 
-#include "../board.h"
+#include "board.h"
 
 void
 delay_one_sec(void)

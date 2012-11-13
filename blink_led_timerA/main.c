@@ -16,7 +16,7 @@
  */
 
 #include <msp430g2452.h>
-#include "../board.h"
+#include "board.h"
 
 #define ONE_SECOND	125	/*  125 = SMCLK/8/1000 */
 #define COMPARE_VAL	1000	/* 1000 = SMCLK/8/125  */

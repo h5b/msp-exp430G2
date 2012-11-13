@@ -9,6 +9,8 @@ MSPPROG = mspdebug rf2500
 # Level of Optimization
 OPT = s
 
+CPPFLAGS += -I$(CURDIR)/../
+
 CFLAGS += -mmcu=$(MCU) -O$(OPT)
 CFLAGS += -Werror -Wextra
 CFLAGS += -Wall -Wcast-align -Wimplicit
