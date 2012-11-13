@@ -21,11 +21,11 @@
 #define ONE_SECOND	125	/*  125 = SMCLK/8/1000 */
 #define COMPARE_VAL	1000	/* 1000 = SMCLK/8/125  */
 
-void ISR_Timer_A0(void) __attribute__((interrupt(TIMER0_A0_VECTOR)));
+void ISR_Timer0_A0(void) __attribute__((interrupt(TIMER0_A0_VECTOR)));
 volatile unsigned int count = 0;
 
 void
-ISR_Timer_A0(void)
+ISR_Timer0_A0(void)
 {
 	count++;
 
