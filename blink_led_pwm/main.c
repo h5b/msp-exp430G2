@@ -18,11 +18,11 @@
 #include <msp430g2452.h>
 #include "board.h"
 
-void ISR_Timer0_A0(void) __attribute__((interrupt(TIMER0_A0_VECTOR)));
-void ISR_Timer0_A1(void) __attribute__((interrupt(TIMER0_A1_VECTOR)));
-
 #define PWM_PERIOD	65535
 #define PWM_DUTY_CYCLE	6080
+
+void ISR_Timer0_A0(void) __attribute__((interrupt(TIMER0_A0_VECTOR)));
+void ISR_Timer0_A1(void) __attribute__((interrupt(TIMER0_A1_VECTOR)));
 
 void
 ISR_Timer0_A0(void)
@@ -51,11 +51,10 @@ main(void)
 
 	/*
 	 * See Section 12.3.1 TACTL, Timer_A Control Register
-	 * of the MSP430x2xx Family User's Guide
 	 *
-	 * Configure Timer_A to run in Compare Match Mode with dual
-	 * Compare Values in place to accomplish unique PWM Period
-	 * and Duty Cycle.
+	 * Configure Timer_A to run with SMCLK (TASSEL2), Clock
+	 * Divider /8 (ID_3) in Count Up Mode (MC_1).
+	 * Interrupt issued when TACCR0/TACCR1 is reached.
 	 */
 	TACTL |= (TASSEL_2 + ID_3 + TACLR);
 	CCR0 = PWM_PERIOD;

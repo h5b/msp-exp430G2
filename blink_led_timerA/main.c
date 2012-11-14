@@ -48,9 +48,9 @@ main(void)
 
 	/*
 	 * See Section 12.3.1 TACTL, Timer_A Control Register
-	 * of the MSP430x2xx Family User's Guide
 	 *
-	 * Configure Timer_A to run with SMCLK/8, Compare Match/Count Up Mode.
+	 * Configure Timer_A to run with SMCLK (TASSEL2), Clock
+	 * Divider /8 (ID_3) in Count Up Mode (MC_1).
 	 */
 	TACTL |= (TASSEL_2 + ID_3 + TACLR);
 	CCR0 = COMPARE_VAL;

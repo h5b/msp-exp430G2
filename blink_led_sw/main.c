@@ -32,9 +32,10 @@ int
 main(void)
 {
 	/*
+	 * See Section 10.3.1 "WDTCTL, Watchdog Timer+ Registers"
+	 * of the MSP430x2xx Family User's Guide
+	 *
 	 * Enforce Watchdog Timer Hold
-	 * see Section 10.3 "Watchdog Timer+ Registers of the
-	 * MSP430x2xx Family User's Guide
 	 */
 	WDTCTL = (WDTPW + WDTHOLD);
 

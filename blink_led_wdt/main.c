@@ -18,7 +18,7 @@
 #include <msp430g2452.h>
 #include "board.h"
 
-#define ONE_SECOND	125 /* 1000ms/8ms = 125 */
+#define ONE_SECOND	125 /* (10^3 / 8*10^3) = 125 */
 
 void ISR_watchdog(void) __attribute__((interrupt(WDT_VECTOR)));
 volatile unsigned int count;
@@ -41,8 +41,9 @@ main(void)
 	 * See Section 10.3.1 "WDTCTL, Watchdog Timer+ Registers"
 	 * of the MSP430x2xx Family User's Guide
 	 *
-	 * Initialise Watchdog Interval Timer Mode to CLK 1/8192
-	 * so the ISR gets called every 8ms.
+	 * Configure Watchdog to run in Interval Timer Mode (WDTTMSEL),
+	 * Watchdog Timer Interval set to CLK/8192 (WDTIS0) so the
+	 * ISR gets called every 8ms.
 	 */
 	WDTCTL = (WDTPW + WDTTMSEL + WDTCNTCL + WDTIS0);
 	IE1 |= WDTIE;
