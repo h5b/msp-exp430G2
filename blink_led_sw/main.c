@@ -19,6 +19,8 @@
 
 #include "board.h"
 
+void delay_one_sec(void);
+
 void
 delay_one_sec(void)
 {

@@ -22,4 +22,8 @@
 #define GRN_LED		BIT6
 #define RED_LED		BIT0
 
+void ISR_Timer0_A0(void) __attribute__((interrupt(TIMER0_A0_VECTOR)));
+void ISR_Timer0_A1(void) __attribute__((interrupt(TIMER0_A1_VECTOR)));
+void ISR_Watchdog(void) __attribute__((interrupt(WDT_VECTOR)));
+
 #endif /* _BOARD_H_ */

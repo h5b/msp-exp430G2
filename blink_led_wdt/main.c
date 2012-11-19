@@ -18,13 +18,12 @@
 #include <msp430g2452.h>
 #include "board.h"
 
-#define ONE_SECOND	125 /* (10^3 / 8*10^3) = 125 */
+#define ONE_SECOND	125 /* (10^6 / 8*10^3) = 125 */
 
-void ISR_watchdog(void) __attribute__((interrupt(WDT_VECTOR)));
 volatile unsigned int count;
 
 void
-ISR_watchdog(void)
+ISR_Watchdog(void)
 {
 	count++;
 

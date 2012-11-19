@@ -21,9 +21,6 @@
 #define PWM_DUTY_INITVAL	0
 #define PWM_PERIOD		1250	/* SMCLK/8/100ms */
 
-void ISR_Timer0_A0(void) __attribute__((interrupt(TIMER0_A0_VECTOR)));
-void ISR_Timer0_A1(void) __attribute__((interrupt(TIMER0_A1_VECTOR)));
-
 volatile unsigned count = 0;
 
 /*

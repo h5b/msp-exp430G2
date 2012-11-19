@@ -21,9 +21,6 @@
 #define PWM_PERIOD	65535
 #define PWM_DUTY_CYCLE	6080
 
-void ISR_Timer0_A0(void) __attribute__((interrupt(TIMER0_A0_VECTOR)));
-void ISR_Timer0_A1(void) __attribute__((interrupt(TIMER0_A1_VECTOR)));
-
 void
 ISR_Timer0_A0(void)
 {

@@ -9,6 +9,7 @@ MSPPROG = mspdebug rf2500
 # Level of Optimization
 OPT = s
 
+# Common Include Paths
 TOP := $(dir $(lastword $(MAKEFILE_LIST)))
 EXTRAINCDIRS = -I$(TOP)/include -I.
 CPPFLAGS += $(EXTRAINCDIRS)
@@ -16,6 +17,7 @@ CPPFLAGS += $(EXTRAINCDIRS)
 CFLAGS += -mmcu=$(MCU) -O$(OPT)
 CFLAGS += -Werror -Wextra
 CFLAGS += -Wall -Wcast-align -Wimplicit
+CFLAGS += -Wmissing-prototypes
 CFLAGS += -Wpointer-arith -Wswitch
 CFLAGS += -Wredundant-decls -Wreturn-type
 CFLAGS += -Wshadow -Wunused
