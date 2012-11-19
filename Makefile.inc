@@ -9,7 +9,9 @@ MSPPROG = mspdebug rf2500
 # Level of Optimization
 OPT = s
 
-CPPFLAGS += -I$(CURDIR)/../
+TOP := $(dir $(lastword $(MAKEFILE_LIST)))
+EXTRAINCDIRS = -I$(TOP)/include -I.
+CPPFLAGS += $(EXTRAINCDIRS)
 
 CFLAGS += -mmcu=$(MCU) -O$(OPT)
 CFLAGS += -Werror -Wextra
