@@ -18,27 +18,98 @@
 #include <msp430g2452.h>
 #include "board.h"
 
-#define PWM_DUTY_INITVAL 0
-#define PWM_DUTY_MAX	 2048
-#define PWM_DUTY_STEP	 2
-#define PWM_PERIOD	 512
+#define PWM_DUTY_INITVAL	0
+#define PWM_PERIOD		1250	/* SMCLK/8/100ms */
 
 void ISR_Timer0_A0(void) __attribute__((interrupt(TIMER0_A0_VECTOR)));
 void ISR_Timer0_A1(void) __attribute__((interrupt(TIMER0_A1_VECTOR)));
+
+volatile unsigned count = 0;
+
+/*
+ * Lookup Table of exponential PWM values to accomplish rough
+ * visual linear brightness perception by the human eye.
+ *
+ * for i in `jot 64`; do echo "scale=0; (2 * 1.10238 ^$i / 1);" | bc; done
+ */
+const unsigned int pwmValues_LUT[] =
+{
+	2,
+	2,
+	2,
+	2,
+	3,
+	3,
+	3,
+	4,
+	4,
+	5,
+	5,
+	6,
+	7,
+	7,
+	8,
+	9,
+	10,
+	11,
+	12,
+	14,
+	15,
+	17,
+	18,
+	20,
+	22,
+	25,
+	27,
+	30,
+	33,
+	37,
+	41,
+	45,
+	49,
+	54,
+	60,
+	66,
+	73,
+	81,
+	89,
+	98,
+	108,
+	119,
+	132,
+	145,
+	160,
+	177,
+	195,
+	215,
+	237,
+	261,
+	288,
+	317,
+	350,
+	386,
+	425,
+	469,
+	517,
+	570,
+	628,
+	693,
+	764,
+	842,
+	928,
+	1023,
+};
 
 void
 ISR_Timer0_A0(void)
 {
 	P1OUT |= GRN_LED;
-
 	/*
-	 * Increase CCR1 while CCR1 < PWM_DUTY_MAX to
-	 * increase LED Brightness (reduce Low Level Interval).
+	 * Increase LED Brightness by continously manipulating
+	 * the Low Level Timing Interval determined by the
+	 * Compare Match Value CCR1
 	 */
-	if (CCR1 <= PWM_DUTY_MAX)
-		CCR1 += PWM_DUTY_STEP;
-	else
-		CCR1 = PWM_DUTY_INITVAL;
+	CCR1 = pwmValues_LUT[count++ % sizeof(pwmValues_LUT) - 1];
 }
 
 void
