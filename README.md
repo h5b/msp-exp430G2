@@ -26,11 +26,10 @@ to be used with the MSP-GCC toolchain.
   Watchdog functionality.
 
 * __led_pwm__ very rough example of Brightness Control of the Green LED  
-  (PIN 1.6) of the MSP430 LaunchPad via PWM.  
-  Timer_A is configured to run in Compare Match Mode.  
-  Stepping of the PWM Duty Cycle uses a simple Lookup Table of exponential  
-  PWM Values as the human eye senses brightness approximately logarithmically  
-  over a wide range.
+  (PIN 1.6) of the MSP430 LaunchPad via PWM. Timer_A is configured to run  
+  in dual Compare Match Mode. Stepping of the PWM Duty Cycle uses a simple  
+  Lookup Table of exponential PWM Values as the human eye senses brightness  
+  approximately logarithmically over a wide range.
 
 
 ## Schematics
