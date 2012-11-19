@@ -30,7 +30,7 @@ volatile unsigned count = 0;
  * Lookup Table of exponential PWM values to accomplish rough
  * visual linear brightness perception by the human eye.
  *
- * for i in `jot 64`; do echo "scale=0; (2 * 1.10238 ^$i / 1);" | bc; done
+ * for i in `jot 64`; do echo "scale=0; (2 * 1.10238^$i / 1);" | bc; done
  */
 const unsigned int pwmValues_LUT[] =
 {
@@ -105,11 +105,12 @@ ISR_Timer0_A0(void)
 {
 	P1OUT |= GRN_LED;
 	/*
-	 * Increase LED Brightness by continously manipulating
-	 * the Low Level Timing Interval determined by the
-	 * Compare Match Value CCR1
+	 * We got hit every 100ms (PWM_PERIOD).
+	 *
+	 * Increase LED Brightness by continously manipulating the Low Level
+	 * Timing Interval (Compare Match Value CCR1) of ISR_Timer0_A1()
 	 */
-	CCR1 = pwmValues_LUT[count++ % sizeof(pwmValues_LUT) - 1];
+	CCR1 = pwmValues_LUT[count++ % (sizeof(pwmValues_LUT) - 1)];
 }
 
 void
