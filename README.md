@@ -26,9 +26,7 @@ vagrant up
 This sets up a virtual development machine host __msp430-dev__
 12.04. with the MSP-GCC toolchain already being installed.
 The setup takes a couple of minutes. After the installation
-can can login to the machine by running:
-
-`vagrant ssh`
+can can login to the machine by running: `vagrant ssh`
 
 ## Code Examples
 
