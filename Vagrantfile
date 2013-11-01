@@ -8,9 +8,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.hostname = "msp430-dev"
   config.vm.provider "virtualbox" do |v|
     v.name = "msp430-dev"
-    # Enable USB Support with EHCI
+    # Enable USB Support with EHCI and Device Filtering to support
+    # msp430-Programmer
     v.customize ['modifyvm', :id, '--usb', 'on']
     v.customize ['modifyvm', :id, '--usbehci', 'on']
+    v.customize ['usbfilter', 'add', '0', '--target', :id, '--name', 'msp430 Programmer', '--vendorid', '0x0451']
   end
 
   config.ssh.forward_agent = true

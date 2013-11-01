@@ -1,0 +1,4 @@
+# Provide Access for Group "dialout" to msp430-USB Programmer
+SUBSYSTEM!="usb_device", ACTION!="add", GOTO="mspprog_end"
+ATTR{idVendor}=="0451", ATTR{idProduct}=="f432", MODE="660", GROUP="dialout"
+LABEL="mspprog_end"

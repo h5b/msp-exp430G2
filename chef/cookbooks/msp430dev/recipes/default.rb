@@ -18,3 +18,10 @@ Chef::Log.info("[Adding: msp430-Toolchain Packages]")
 ].each do |p|
   package p
 end
+
+Chef::Log.info("[Adding: User 'vagrant' to group 'dialout']")
+group "dialout" do
+  action :modify
+  members "vagrant"
+  append true
+end
