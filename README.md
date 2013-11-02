@@ -64,7 +64,20 @@ can login to the machine by running: `vagrant ssh`
 
 ### Running Code Examples
 
-The following steps show how to run the
+Ensure that mspdebug is ready to recognise the Launchpad.
+The best approach here is to plug in the board not before
+`vagrant up` has finished. If you encounter any problems
+have a look at the output of running `lsusb` which should
+result in:
+
+```
+vagrant@msp430-dev:~$ lsusb
+[..]
+Bus 002 Device 002: ID 0451:f432 Texas Instruments, Inc. eZ430 Development
+Tool
+```
+
+The following steps show how to program and run the
 [led_pwm](https://github.com/h5b/msp-exp430G2/tree/master/src/led_pwm)
 example:
 
