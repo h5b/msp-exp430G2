@@ -11,6 +11,7 @@ OPT = s
 
 # Common Include Paths
 TOP := $(dir $(lastword $(MAKEFILE_LIST)))
+TOP := $(patsubst %/, %, $(TOP))
 EXTRAINCDIRS = -I$(TOP)/include -I.
 CPPFLAGS += $(EXTRAINCDIRS)
 
@@ -25,3 +26,20 @@ CFLAGS += -fno-builtin
 CFLAGS += -funsigned-char
 CFLAGS += -funsigned-bitfields
 CFLAGS += -fpack-struct
+
+CLEANFILES=$(PROG).elf $(OBJS)
+
+$(PROG).elf: $(OBJS)
+	$(CC) $(CFLAGS) -o $(PROG).elf $(OBJS)
+	@echo "___ [SIZE] ______________________________________________"
+	$(SIZE) $@
+	@echo "___ [SIZE] ______________________________________________"
+
+$(OBJS): $(SRCS) ../Makefile.inc
+	$(CC) $(CFLAGS) $(CPPFLAGS) -c $(SRCS)
+
+prog: $(PROG).elf
+	$(MSPPROG) 'prog $(PROG).elf'
+
+clean:
+	rm -f $(CLEANFILES)

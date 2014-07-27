@@ -1,5 +1,3 @@
-include Makefile.inc
-
 SUBDIRS = blink_led_pwm \
 	  blink_led_sw \
 	  blink_led_timerA \
