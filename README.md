@@ -5,7 +5,7 @@ This project is targeted at the development of various code examples for the
 Texas Instruments with the MSP-GCC toolchain while automating the setup
 process of a development environment with VirtualBox and Vagrant.
 
-![MSP430 LaunchPad Rev. 1.5](https://github.com/h5b/msp-exp430G2/raw/master/doc/img/MSPExP430G2Rev15.jpg)
+![MSP430 LaunchPad Rev. 1.5](doc/img/MSPExP430G2Rev15.jpg)
 
 ## Requirements
 
@@ -30,32 +30,32 @@ can login to the machine by running: `vagrant ssh`
 
 ## Code Examples
 
-* [blink_led_pwm](https://github.com/h5b/msp-exp430G2/tree/master/src/blink_led_pwm)
+* [blink_led_pwm](src/blink_led_pwm)
   implements an PWM example to flash the Green User LED of the MSP430 LaunchPad.
   Flashing the LED is accomplished by making use of Timer_A's ability to keep
   track of two Compare Match Values. With one being used as PWM Duty Cycle and
   the other one to control the PWM Period.
 
-* [blink_led_sw](https://github.com/h5b/msp-exp430G2/tree/master/src/blink_led_sw)
+* [blink_led_sw](src/blink_led_sw)
   implements an example to let the Green User LED of the MSP430 LaunchPad blink
   once per second. The delay is accomplished via a software delay provided by
   __\_\_delay_cycles()__ function.
 
-* [blink_led_timerA](https://github.com/h5b/msp-exp430G2/tree/master/src/blink_led_timerA)
+* [blink_led_timerA](src/blink_led_timerA)
   implements an example in the veins of [blink_led_wdt]
-  (https://github.com/h5b/msp-exp430G2/tree/master/src/blink_led_wdt) to let the
+  (src/blink_led_wdt) to let the
   Green User LED of the MSP430 LaunchPad blink once per second.
   Instead of utilizing the Watchdog functionality the System Timer_A is
   configured to run in Compare Match Mode.
 
-* [blink_led_wdt](https://github.com/h5b/msp-exp430G2/tree/master/src/blink_led_wdt)
+* [blink_led_wdt](src/blink_led_wdt)
   is an example in the veins of [blink_led_sw]
-  (https://github.com/h5b/msp-exp430G2/tree/master/src/blink_led_sw) to let the
+  (src/blink_led_sw) to let the
   Green User LED of the MSP430 LaunchPad blink once per second.
   Although using a timer-based delay which is accomplished via the builtin
   Watchdog functionality.
 
-* [led_pwm](https://github.com/h5b/msp-exp430G2/tree/master/src/led_pwm)
+* [led_pwm](src/led_pwm)
   is an (very rough) example of Brightness Control of the Green User LED of the
   MSP430 LaunchPad via PWM. Timer_A is configured to run in dual Compare Match
   Mode. Stepping of the PWM Duty Cycle uses a simple Lookup Table of exponential
@@ -78,7 +78,7 @@ Tool
 ```
 
 The following steps show how to program and run the
-[led_pwm](https://github.com/h5b/msp-exp430G2/tree/master/src/led_pwm)
+[led_pwm](src/led_pwm)
 example:
 
 ```
