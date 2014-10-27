@@ -4,3 +4,9 @@
 [submodule "chef/cookbooks/msp430"]
 	path = chef/cookbooks/msp430
 	url = git://github.com/h5b/chef-msp430.git
+[submodule "chef/cookbooks/vim"]
+	path = chef/cookbooks/vim
+	url = git://github.com/opscode-cookbooks/vim.git
+[submodule "chef/cookbooks/git"]
+	path = chef/cookbooks/git
+	url = git://github.com/opscode-cookbooks/git.git

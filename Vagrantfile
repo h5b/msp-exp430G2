@@ -22,6 +22,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     chef.add_recipe "apt"
     chef.add_recipe "msp430"
     chef.add_recipe "msp430::vagrant"
+    chef.add_recipe "git"
+    chef.add_recipe "vim"
     chef.add_recipe "etc"
   end
 
