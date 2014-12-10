@@ -1,12 +1,12 @@
 [submodule "chef/cookbooks/apt"]
 	path = chef/cookbooks/apt
-	url = https://github.com/opscode-cookbooks/apt.git
-[submodule "chef/cookbooks/msp430"]
-	path = chef/cookbooks/msp430
-	url = git://github.com/h5b/chef-msp430.git
-[submodule "chef/cookbooks/vim"]
-	path = chef/cookbooks/vim
-	url = git://github.com/opscode-cookbooks/vim.git
+  url = https://github.com/chef-cookbooks/apt.git
 [submodule "chef/cookbooks/git"]
 	path = chef/cookbooks/git
-	url = git://github.com/opscode-cookbooks/git.git
+	url = https://github.com/sous-chefs/git.git
+[submodule "chef/cookbooks/msp430"]
+	path = chef/cookbooks/msp430
+  url = https://github.com/h5b/chef-msp430.git
+[submodule "chef/cookbooks/vim"]
+	path = chef/cookbooks/vim
+  url = https://github.com/sous-chefs/vim.git
